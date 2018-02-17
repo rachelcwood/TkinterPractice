@@ -54,7 +54,7 @@ def main():
 
 
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # DONE 7
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -81,16 +81,11 @@ def main():
 
     print_entry_button = ttk.Button(frame1, text='Print number')
 
-    num_box = my_num_box.get()
-    num = int(num_box)
-
-    for k in range(num):
-        print_entry_button['command'] = (lambda:
-                                     (print_contents(my_entry_box)))
+    print_entry_button['command'] = (lambda:
+                                     (print_contents_multi(my_num_box, my_entry_box)))
     print_entry_button.grid()
 
     root.mainloop()
-
 
     # ------------------------------------------------------------------
     # TODO: 8. As time permits, do other interesting GUI things!
@@ -110,7 +105,7 @@ def print_contents(entry_box):
     contents_of_entry_box = entry_box.get()
     print(contents_of_entry_box)
 
-def print_contents_muti(entry_box, num):
+def print_contents_multi(num, entry_box):
     """
     Prints onto the Console the contents of the given ttk.Entry.
 
@@ -121,7 +116,10 @@ def print_contents_muti(entry_box, num):
       :type entry_box: ttk.Entry
     """
     contents_of_entry_box = entry_box.get()
-    for k in range (num):
+
+    num_entries = int(num.get())
+
+    for k in range(num_entries):
         print(contents_of_entry_box)
 # -----------------------------------------
 # ----------------------------------------------------------------------
